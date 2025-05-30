@@ -112,6 +112,8 @@ if (isset($_POST['login'])) {
   .link-box a:hover {
     color: #0056b3;
   }
+  
+
 </style>
 </head>
 <body>
