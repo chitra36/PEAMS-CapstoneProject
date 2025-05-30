@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $conn->real_escape_string(trim($_POST['name']));
     $email = $conn->real_escape_string(trim($_POST['email']));
     $password = md5(trim($_POST['password']));
-    $role = 'employee'; // Default role
+    $role = $conn->real_escape_string($_POST['role']);
 
     $check = $conn->query("SELECT * FROM users WHERE Email = '$email'");
     if ($check->num_rows > 0) {
@@ -123,6 +123,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .link-box a:hover {
       color: #0056b3;
     }
+    select {
+  width: 100%;
+  padding: 14px 15px;
+  margin: 10px 0 20px 0;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: white;
+  color: #333;
+  transition: border-color 0.3s ease;
+  appearance: none;
+}
+
+select:focus {
+  outline: none;
+  border-color: #28a745;
+}
+
   </style>
 </head>
 <body>
@@ -140,6 +159,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="name" placeholder="Full Name" required />
     <input type="email" name="email" placeholder="Email Address" required />
     <input type="password" name="password" placeholder="Create Password" required />
+
+     <label for="role">Select Role</label>
+<select name="role" id="role" required>
+    <option value="">-- Choose Role --</option>
+    <option value="employee">Employee</option>
+    <option value="admin">Admin</option>
+</select>
+
     <button type="submit">Register</button>
   </form>
 
