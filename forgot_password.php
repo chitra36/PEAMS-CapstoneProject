@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newPassword = trim($_POST['new_password']);
 
     if (!empty($email) && !empty($newPassword)) {
-        $hashedPassword = md5($newPassword); // Basic encryption (you can upgrade to password_hash later)
+        $hashedPassword = md5($newPassword); // Use password_hash() in production
 
         $sql = "UPDATE users SET Password = '$hashedPassword' WHERE Email = '$email'";
         if ($conn->query($sql) && $conn->affected_rows > 0) {
@@ -30,53 +30,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4f8;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #cdeaff, #f6fafd);
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
     .reset-box {
-      background: white;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
       padding: 40px 35px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
       width: 100%;
       max-width: 420px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
+
     h2 {
       text-align: center;
-      color: #dc3545;
+      color: #2c3e50;
       margin-bottom: 30px;
     }
+
     input {
       width: 100%;
-      padding: 14px 15px;
-      margin: 10px 0 20px 0;
-      border: 1.8px solid #ddd;
-      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 50px;
       font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
+      background: rgba(255, 255, 255, 0.85);
+      color: #333;
+      outline: none;
     }
-    input:focus {
-      border-color: #dc3545;
+
+    input::placeholder {
+      color: #888;
     }
+
     button {
       width: 100%;
       padding: 14px;
-      background-color: #dc3545;
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
       border: none;
-      border-radius: 8px;
-      color: white;
+      border-radius: 50px;
+      color: #2c3e50;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
+
     button:hover {
-      background-color: #bd2130;
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
     }
+
     p.message {
       text-align: center;
       font-weight: 600;
@@ -84,23 +95,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       border-radius: 6px;
       margin-bottom: 20px;
     }
+
     .success {
       background-color: #d4edda;
       color: #155724;
     }
+
     .error {
       background-color: #f8d7da;
       color: #721c24;
     }
+
     .link-box {
       text-align: center;
       margin-top: 15px;
     }
+
     .link-box a {
       color: #007bff;
       text-decoration: none;
       font-weight: 500;
     }
+
     .link-box a:hover {
       color: #0056b3;
     }

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Dashboard</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #eaf3f1;
+}
+
+.dashboard-container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timesheet-card .info-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.info-box {
+  flex: 1;
+  border-radius: 12px;
+  padding: 10px;
+  color: white;
+}
+
+.purple {
+  background-color: #6c5ce7;
+}
+
+.blue {
+  background-color: #0984e3;
+}
+
+.green-card {
+  background-color: #a3e4d7;
+  color: #004d40;
+}
+
+.orange-card {
+  background-color: #fbc687;
+  color: #5d4037;
+}
+
+.blue-card {
+  background-color: #d0e6f7;
+  color: #01579b;
+}
+
+.white-card {
+  background-color: #ffffff;
+  color: #333;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <div class="profile-section">
+        <img src="https://i.pravatar.cc/50" alt="Profile" class="profile-img">
+        <h2>Employee Dashboard</h2>
+      </div>
+      <div class="user-info">
+        <span>Client Peak</span>
+        <i class="icon">&#9881;</i>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card timesheet-card">
+        <h3>View My Timesheet</h3>
+        <div class="info-row">
+          <div class="info-box purple">
+            <p>Attendance</p>
+            <h4>$10.05</h4>
+          </div>
+          <div class="info-box blue">
+            <p>Absundance</p>
+            <h4>$21.26</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="card green-card">
+        <h3>Check / My TimeSheet</h3>
+        <p>Review work time, attendance, and shift entries.</p>
+        <button>Review</button>
+      </div>
+
+      <div class="card white-card payment-box">
+        <h4>Total</h4>
+        <ul>
+          <li>Timesheet: <span>$385.55</span></li>
+          <li>Regularization: <span>$80.00</span></li>
+          <li>Overtime: <span>$00.00</span></li>
+        </ul>
+      </div>
+
+      <div class="card blue-card">
+        <h3>Regularization Request for Leave</h3>
+        <p>Leave requests, attendance issues, and leave balance.</p>
+        <button>Submit</button>
+      </div>
+
+      <div class="card orange-card">
+        <h3>Pay Statement and Reports</h3>
+        <p>Download your payslips and view financial summaries.</p>
+        <button>Download</button>
+      </div>
+
+      <div class="card white-card">
+        <ul>
+          <li>Tasks: <span>$0.00</span></li>
+          <li>Weekend Balance: <span>$180.00</span></li>
+          <li>Midweek Effort: <span>$25.00</span></li>
+          <li>Reports: <span>$295.00</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

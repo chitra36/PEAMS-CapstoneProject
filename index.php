@@ -6,7 +6,7 @@ $error = "";
 
 if (isset($_POST['login'])) {
     $email = trim($_POST['email']);
-    $password = md5(trim($_POST['password'])); // Encrypt input
+    $password = md5(trim($_POST['password']));
 
     $sql = "SELECT * FROM users WHERE Email = '$email' AND Password = '$password'";
     $result = $conn->query($sql);
@@ -30,112 +30,118 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Login - PEAMS</title>
-<style>
-  body {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - PEAMS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #cdeaff, #f6fafd);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .login-box {
-    background: white;
+  .reset-box {
+    background: rgba(255, 255, 255, 0.15);
     padding: 40px 35px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
   }
   h2 {
     text-align: center;
-    color: #0056b3;
+    color: black;
     margin-bottom: 30px;
   }
-  input[type="email"],
-  input[type="password"] {
+  input {
     width: 100%;
-    padding: 14px 15px;
+    padding: 14px;
     margin: 10px 0 20px 0;
-    border: 1.8px solid #ddd;
-    border-radius: 8px;
+    border: none;
+    border-radius: 50px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
     box-sizing: border-box;
   }
-  input[type="email"]:focus,
-  input[type="password"]:focus {
+  input::placeholder {
+    color: #666;
+  }
+  input:focus {
     outline: none;
-    border-color: #007bff;
   }
   button {
     width: 100%;
     padding: 14px;
-    background-color: #007bff;
+   background: linear-gradient(to right, #a1c4fd, #c2e9fb);
     border: none;
-    border-radius: 8px;
-    color: white;
+    border-radius: 50px;
+    color: black;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(to right, #c2e9fb, #a1c4fd);
   }
-  p.error {
-    background-color: #f8d7da;
-    color: #842029;
-    padding: 12px 15px;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-bottom: 20px;
+  p.message {
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
   }
   .link-box {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .link-box a {
-    display: inline-block;
-    margin: 6px 8px;
+    color: blue;
     text-decoration: none;
     font-weight: 500;
-    color: #007bff;
-    transition: color 0.3s ease;
   }
   .link-box a:hover {
     color: #0056b3;
   }
-  
-
-</style>
+  </style>
 </head>
 <body>
 
-<div class="login-box">
-  <h2>🔐 Login to PEAMS</h2>
+  <div class="login-container">
+    <h2>Login</h2>
 
-  <?php if ($error): ?>
-    <p class="error"><?= htmlspecialchars($error) ?></p>
-  <?php endif; ?>
+    <?php if ($error): ?>
+      <p class="error"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
 
-  <form method="POST" novalidate>
-    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
-    <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
-    <button type="submit" name="login">Login</button>
-  </form>
+    <form method="POST" novalidate>
+      <input type="email" name="email" placeholder="Username" required autocomplete="email" />
+      <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
+      <button type="submit" name="login">Button</button>
+    </form>
 
-  <div class="link-box">
-    <a href="register.php">📝 New user? Register here</a><br>
-    <a href="forgot_password.php">🔑 Forgot Password?</a>
+    <div class="link-box">
+      <a href="register.php">📝 Register</a>
+      <a href="forgot_password.php">🔑 Forgot Password?</a>
+    </div>
   </div>
-</div>
 
 </body>
 </html>

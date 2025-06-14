@@ -49,7 +49,7 @@ $user = $_SESSION['user'];
 
         <!-- Logout Button -->
         <div class="text-right">
-            <a href="logout.php" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full shadow inline-flex items-center gap-2">
+            <a href="../logout.php" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full shadow inline-flex items-center gap-2">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         </div>

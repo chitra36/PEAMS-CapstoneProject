@@ -31,115 +31,106 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Register - PEAMS</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4f8;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .register-box {
-      background: white;
-      padding: 40px 35px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 450px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #28a745;
-      margin-bottom: 30px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 14px 15px;
-      margin: 10px 0 20px 0;
-      border: 1.8px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
-    }
-
-    input:focus {
-      outline: none;
-      border-color: #28a745;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background-color: #28a745;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #218838;
-    }
-
-    p.message {
-      text-align: center;
-      font-weight: 600;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
-
-    .success {
-      background-color: #d4edda;
-      color: #155724;
-    }
-
-    .error {
-      background-color: #f8d7da;
-      color: #721c24;
-    }
-
-    .link-box {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .link-box a {
-      color: #007bff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .link-box a:hover {
-      color: #0056b3;
-    }
-    select {
-  width: 100%;
-  padding: 14px 15px;
-  margin: 10px 0 20px 0;
-  border: 1.8px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  box-sizing: border-box;
-  background-color: white;
-  color: #333;
-  transition: border-color 0.3s ease;
-  appearance: none;
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #c1dffb, #e8f4fd);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.register-box {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px 35px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  width: 100%;
+  margin: 50px 0; /* gap from top and bottom */
+}
+
+h2 {
+  text-align: center;
+  color: #2a3f54;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border: 1px solid #d0dfea;
+  border-radius: 8px;
+  background-color: #f9fcff;
+  font-size: 15px;
+  color: #333;
+  transition: border 0.3s ease;
+}
+
+input:focus,
 select:focus {
   outline: none;
-  border-color: #28a745;
+  border-color: #7fbfff;
+  box-shadow: 0 0 3px #a9d4ff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3b7dc1;
+}
+
+p.message {
+  text-align: center;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.link-box {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.link-box a {
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 500;
+}
+
+.link-box a:hover {
+  color: #3b7dc1;
 }
 
   </style>
